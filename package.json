@@ -1,5 +1,5 @@
 {
-    "main": "dist/main.js",
+    "main": "storage/dist/main.js",
     "scripts": {
         "start": "concurrently \"tsc --watch\" \"nodemon dist/main.js --quiet\""
     },
