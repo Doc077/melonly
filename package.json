@@ -1,0 +1,14 @@
+{
+    "main": "dist/main.js",
+    "scripts": {
+        "start": "concurrently \"tsc --watch\" \"nodemon dist/main.js --quiet\""
+    },
+    "author": "Dominik Rajkowski",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^17.0.21",
+        "concurrently": "^7.0.0",
+        "nodemon": "^2.0.15",
+        "typescript": "^4.5.5"
+    }
+}
