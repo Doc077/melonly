@@ -5,8 +5,10 @@
     },
     "author": "Dominik Rajkowski",
     "license": "MIT",
+    "dependencies": {
+        "@melonly/core": "^1.0.0-alpha"
+    },
     "devDependencies": {
-        "@melonly/core": "^1.0.0-alpha",
         "@types/node": "^17.0.21",
         "concurrently": "^7.0.0",
         "nodemon": "^2.0.15",
