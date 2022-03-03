@@ -19,7 +19,7 @@
         "./**/*.ts"
     ],
     "exclude": [
-        "dist",
+        "storage/dist",
         "node_modules"
     ]
 }
