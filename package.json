@@ -1,10 +1,13 @@
 {
+    "name": "melonly",
+    "version": "1.0.0",
     "main": "storage/dist/src/main.js",
-    "scripts": {
-        "start": "concurrently \"tsc --watch\" \"nodemon dist/main.js --quiet\""
-    },
-    "author": "Dominik Rajkowski",
     "license": "MIT",
+    "scripts": {
+        "build": "tsc",
+        "start": "concurrently \"tsc --watch\" \"nodemon storage/dist/src/dist/main --quiet\"",
+        "start:prod": "node dist/main"
+    },
     "dependencies": {
         "@melonly/core": "^1.0.0-alpha"
     },
