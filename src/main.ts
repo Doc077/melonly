@@ -1,7 +1,7 @@
-import { App } from '@melonly/core'
+import { createApp } from '@melonly/core'
 import { AppController } from './app/app.controller'
 
-const app = App.createApp()
+const app = createApp()
 
 app.registerControllers([
     AppController,
