@@ -1,6 +1,7 @@
 {
     "name": "melonly",
     "version": "1.0.0",
+    "private": true,
     "main": "storage/dist/src/main.js",
     "license": "MIT",
     "scripts": {
