@@ -340,7 +340,7 @@ Email.send('recipient@address.com', new WelcomeEmail())
 
 ## License
 
-Melonly is an open-source framework licensed under the [MIT License](melonly/LICENSE).
+Melonly is an open-source framework licensed under the [MIT License](LICENSE).
 
 Author: [Doc077](https://github.com/Doc077)
 
