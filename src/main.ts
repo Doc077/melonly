@@ -6,3 +6,5 @@ const app = createApp()
 app.registerControllers([
     AppController,
 ])
+
+app.start()
