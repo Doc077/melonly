@@ -5,7 +5,9 @@
 <!-- omit in toc -->
 ## Melonly Node.js Framework
 
-[![npm version](https://badge.fury.io/js/@melonly%2Fcore.svg)](https://www.npmjs.com/package/@melonly/core)
+<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/v/@melonly/core.svg" alt="Version"></a>
+<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dm/@melonly/core.svg" alt="Downloads"></a>
+<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/l/@melonly/core.svg" alt="License"></a>
 
 Melonly is a fast and modern web development framework for Node.js. It makes easy to create secure and fast web applications with awesome developer experience.
 
@@ -19,6 +21,7 @@ Melonly is a fast and modern web development framework for Node.js. It makes eas
   - [`/public`](#public)
   - [`/src`](#src)
   - [`/storage`](#storage)
+  - [`/tests`](#tests)
   - [`/views`](#views)
 - [The Basics](#the-basics)
   - [Configuration](#configuration)
@@ -40,16 +43,16 @@ Melonly is a fast and modern web development framework for Node.js. It makes eas
 
 ## Installation
 
-To create a fresh Melonly project you can use the CLI installer. You only have to install `@melonly/cli` package.
+To create a new Melonly project you can use the CLI installer. First you only have to install `@melonly/cli` package.
 
 ```shell
 npm install -g @melonly/cli
 ```
 
-You can check the CLI version if properly installed. Then you'll be able to run `melon` commands:
+Then you can check the Melonly CLI version if it has been properly installed. Then you'll be able to run `melon` commands:
 
 ```shell
-# Display information about CLI version
+# Display Melonly CLI version
 
 melon -v
 ```
@@ -63,7 +66,7 @@ melon new <project-name>
 
 ## Running Application
 
-Once your project has been created you can run it on the local server with `npm start`:
+Once your project has been created you can start it on the local server using `npm start`:
 
 ```shell
 cd <project-name>
@@ -101,6 +104,11 @@ The `src` directory contains your application code. Feel free to modify and chan
 There are stored cache and temporary files. TypeScript code is compiled into `dist` directory inside this folder. You don't need to edit anything there.
 
 
+### `/tests`
+
+This directory stores your unit tests (test files end with `.test.ts` extension).
+
+
 ### `/views`
 
 The `views` directory contains app views rendered by your application. View files have `.melon.html` extension.
@@ -110,19 +118,17 @@ The `views` directory contains app views rendered by your application. View file
 
 ### Configuration
 
-App configuration is based on `.env` file. This is where database credentials and environment-specific settings should be stored. Melonly automatically reads all `.env` variables to `process.env` object available in your code.
+All app configuration is stored in `.env` file. This is where database credentials and environment-specific settings should be stored. Melonly automatically reads all `.env` variables to `process.env` object available in your code.
 
 ```
-APP_PORT=3000
-
 DATABASE_CONNECTION=mysql
 DATABASE_HOST=localhost
 ```
 
-You can reference these variables this way:
+You can obtain these variables with `process.env`:
 
 ```ts
-console.log(process.env.APP_PORT)
+console.log(process.env.DATABASE_HOST)
 ```
 
 
@@ -186,7 +192,7 @@ The example template with foreach loop and conditional rendering looks like this
 [/if]
 ```
 
-All control directives like conditional blocks and loops use the square brackets syntax with `{{ ... }}` for variable interpolation.
+All directives like conditional blocks and loops use the square brackets and slash syntax. For displaying passed variables use `{{ variable }}` syntax.
 
 Some frontend frameworks like Vue use the same bracket syntax for displaying data. To render raw brackets put `@` sign before them:
 
@@ -260,7 +266,7 @@ Melonly provides a simple API for dealing with web requests and responses. You c
 ```ts
 import { Request, Response } from '@melonly/core'
 
-// In controller's constructor...
+// In controller's constructor
 
 constructor(private readonly request: Request, private readonly response: Response) {}
 ```
@@ -281,7 +287,7 @@ Obtaining matched url parameters:
 ```ts
 @Get('/users/:id')
 public show(): string {
-    return this.response.parameter('id')
+    return this.request.parameter('id')
 }
 ```
 
@@ -290,7 +296,7 @@ You can also get url query data:
 ```ts
 // URI: /users?view=all
 
-return this.response.queryParam('view') // 'all'
+return this.request.queryParam('view') // 'all'
 ```
 
 
@@ -374,10 +380,6 @@ Emitting events on the server side can be done using `Broadcaster`:
 
 ```ts
 import { Broadcaster } from '@melonly/core'
-
-// Example usage
-
-const chatId = 15
 
 Broadcaster.event('message', `chat/${chatId}`)
 ```
