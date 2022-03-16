@@ -5,8 +5,8 @@
 <!-- omit in toc -->
 ## Melonly Node.js Framework
 
-<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/v/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="Version"></a>
-<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dm/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="Downloads"></a>
+<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/v/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="Latest Version"></a>
+<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dt/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="Downloads"></a>
 <a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/l/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="License"></a>
 
 Melonly is a fast and modern web development framework for Node.js. It makes easy to create secure and fast web applications with awesome developer experience.
