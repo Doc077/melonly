@@ -9,7 +9,7 @@
 <a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dt/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="Downloads"></a>
 <a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/l/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="License"></a>
 
-Melonly is a fast and modern web development framework for Node.js. It makes easy to create secure and fast web applications with awesome developer experience.
+Melonly is a fast and modern web development framework for Node.js. It makes it easy to create secure and fast web applications with awesome developer experience.
 
 **Table of Contents**
 
@@ -28,10 +28,10 @@ Melonly is a fast and modern web development framework for Node.js. It makes eas
   - [Controllers and Routing](#controllers-and-routing)
   - [Views](#views-1)
   - [Services](#services)
-  - [HTTP Request and Response](#http-request-and-response)
+  - [HTTP Requests and Responses](#http-requests-and-responses)
     - [Form Input Data](#form-input-data)
-    - [Redirecting](#redirecting)
-    - [HTTP Headers](#http-headers)
+    - [Redirects](#redirects)
+    - [Headers](#headers)
   - [Mail](#mail)
   - [Websockets and Broadcasting](#websockets-and-broadcasting)
   - [Testing](#testing)
@@ -40,13 +40,13 @@ Melonly is a fast and modern web development framework for Node.js. It makes eas
 
 ## Requirements
 
-- Node.js v16.4.2+
+- Node.js 15+
 - `npm` installed
 
 
 ## Installation
 
-To create a new Melonly project you can use the CLI installer. First you only have to install `@melonly/cli` package.
+To create new Melonly project you can use the CLI installer. You only have to install `@melonly/cli` package:
 
 ```shell
 npm install -g @melonly/cli
@@ -160,6 +160,8 @@ export class AppController {
 
 Basically, a controller is just a class which handles web requests. Each controller should contain decorated methods registering routes. In the example above, when the user enters `/` route, the request will be passed to the `index` method which returns a view with passed variable.
 
+Controller methods should always return some value. Melonly automatically sends proper headers based on returned content. In case of object / array the response will have JSON type. When returned value is text, it will be rendered as HTML.
+
 Controller routes can be created as dynamic patterns with `:paramName` syntax:
 
 ```ts
@@ -172,12 +174,12 @@ To make paramater optional use the question mark:
 @Get('/users/:id?')
 ```
 
-This route will match both `/users` and `/users/327` paths.
+Route above will match both `/users` and `/users/327` paths.
 
 
 ### Views
 
-Melonly includes a built-in view templating engine. Views are placed in `/views` directory and have the `.melon.html` extension.
+Melonly includes a built-in modern view templating engine. Views are placed in `/views` directory and have the `.melon.html` extension.
 
 Melonly's template engine allows you to create loops, conditionals and variable interpolation.
 
@@ -195,7 +197,7 @@ The example template with foreach loop and conditional rendering looks like this
 [/if]
 ```
 
-All directives like conditional blocks and loops use the square brackets and slash syntax. For displaying passed variables use `{{ variable }}` syntax.
+All directives like conditional blocks and loops use the square brackets and slash syntax. For displaying passed variables use `{{ variable }}` syntax. Variables are automatically escaped from HTML to prevent XSS attacks.
 
 Some frontend frameworks like Vue use the same bracket syntax for displaying data. To render raw brackets put `@` sign before them:
 
@@ -206,7 +208,7 @@ Some frontend frameworks like Vue use the same bracket syntax for displaying dat
 Rendering views is done using the 'dot' syntax for nested folders:
 
 ```ts
-// This will render views/pages/welcome.melon.html template
+// Render views/pages/welcome.melon.html template
 
 return this.response.render('pages.welcome')
 ```
@@ -262,7 +264,7 @@ public index(): string {
 ```
 
 
-### HTTP Request and Response
+### HTTP Requests and Responses
 
 Melonly provides a simple API for dealing with web requests and responses. You can inject `Request` and `Response` objects to controller and use them.
 
@@ -274,12 +276,12 @@ import { Request, Response } from '@melonly/core'
 constructor(private readonly request: Request, private readonly response: Response) {}
 ```
 
-You can get matched url parameters:
+You can get matched URL parameters:
 
 ```ts
 @Get('/users/:id')
 public show(): string {
-    return this.request.param('id')
+    return this.request.params.id
 }
 ```
 
@@ -288,7 +290,7 @@ You can also get url query data:
 ```ts
 // Route: /users?view=gallery
 
-const view = this.request.queryParam('view') // 'gallery'
+const view = this.request.query.view // 'gallery'
 ```
 
 
@@ -307,13 +309,20 @@ public create(): string {
 }
 ```
 
+Input data can be sent by HTML form or AJAX:
+
 ```html
-<!-- example form -->
 <input type="text" name="username">
 ```
 
+```ts
+import axios from 'axios'
 
-#### Redirecting
+axios.post('/users', data)
+```
+
+
+#### Redirects
 
 Example redirect response using the `redirect` method:
 
@@ -327,18 +336,18 @@ public index(): RedirectResponse {
 ```
 
 
-#### HTTP Headers
+#### Headers
 
 You can also write response headers:
 
 ```ts
-this.response.header('Content-Type', 'text/plain')
+this.response.header('X-Custom-Header', 'content')
 ```
 
 
 ### Mail
 
-Melonly provides a fluent interface for sending emails from your application. All configuration needed for that is stored in the `.env` file variables:
+Melonly provides a fluent interface for sending emails from your application. All configuration needed for mailing is stored in the `.env` variables:
 
 ```
 MAIL_ADDRESS=example@mail.com
@@ -354,7 +363,7 @@ import { Email } from '@melonly/core'
 Email.send('recipient@mail.com', 'Test Email', 'This is the test email sent from Melonly application.')
 ```
 
-Even though this is simple and convinient for fast testing, we recommend the more object-oriented approach with separate email classes. It will allow us to make template based emails. To generate new email file use the CLI command:
+Though this is simple and convinient for small-sized applications, we recommend the more object-oriented approach with separate email classes. It allows us to make emails with HTML templates. To generate a new email file use the CLI command:
 
 ```shell
 melon make email welcome
@@ -376,7 +385,7 @@ export class WelcomeEmail extends Email {
 }
 ```
 
-In the example above email will render `views/mail.welcome.melon.html` template. You can pass any variables to the template like we done it in view rendering.
+The above email will render `views/mail.welcome.melon.html` template. You can pass any variables to the template like we done it in view rendering.
 
 Sending emails using this method is very similar. Instead of 
 
@@ -397,7 +406,7 @@ First though, you should get to know the concept of broadcasting channels. Chann
 melon make channel chat
 ```
 
-This will create new `src/broadcasting/chat.channel.ts` file with the following content:
+The new `src/broadcasting/chat.channel.ts` file will contain following template:
 
 ```ts
 import { BroadcastChannel, ChannelInterface } from '@melonly/core'
