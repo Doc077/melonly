@@ -26,6 +26,8 @@ Melonly is a fast and modern web development framework for Node.js. It makes it 
 - [The Basics](#the-basics)
   - [Configuration](#configuration)
   - [Controllers and Routing](#controllers-and-routing)
+    - [Main Application File](#main-application-file)
+    - [Routes](#routes)
   - [Views](#views-1)
   - [Services](#services)
   - [HTTP Requests and Responses](#http-requests-and-responses)
@@ -137,17 +139,14 @@ console.log(process.env.DATABASE_HOST)
 
 ### Controllers and Routing
 
-Now we can develop our application. Main entry file for the Node app is `src/main.ts` file. This is the place where app middleware and controllers are registered. Routing system in Melonly is done using controller classes. Framework already ships with one controller in `src/app/app.controller.ts` file by default:
+Now we can develop our application. Every web app should have *routes* - URLs with some assigned action. Routing system in Melonly is based on controller classes. Framework already ships with one controller in `src/app/app.controller.ts` file by default:
 
 ```ts
 import { Controller, Get, Request, Response, ViewResponse } from '@melonly/core'
 
 @Controller()
 export class AppController {
-    constructor(
-        private readonly request: Request,
-        private readonly response: Response,
-    ) {}
+    constructor(private request: Request, private response: Response) {}
 
     @Get('/')
     public index(): ViewResponse {
@@ -158,11 +157,26 @@ export class AppController {
 }
 ```
 
-Basically, a controller is just a class which handles web requests. Each controller should contain decorated methods registering routes. In the example above, when the user enters `/` route, the request will be passed to the `index` method which returns a view with passed variable.
+Basically, a controller is just a class with some methods which handles incoming web requests. Each controller should contain decorated methods which register app routes. In the controller above we have one registered route `/`. When the user enters `/` URL, the request will be passed to the `index` method which returns a view with passed variable.
 
 Controller methods should always return some value. Melonly automatically sends proper headers based on returned content. In case of object / array the response will have JSON type. When returned value is text, it will be rendered as HTML.
 
-Controller routes can be created as dynamic patterns with `:paramName` syntax:
+
+#### Main Application File
+
+The main application entry is located in `src/main.ts` file. This is the place where controllers, middleware and channels are registered. Every time you create new controller, you have to register them:
+
+```ts
+app.registerControllers([
+    AppController,
+    // Other controllers...
+])
+```
+
+
+#### Routes
+
+Route patterns can be also dynamic. Just use `:paramName` syntax:
 
 ```ts
 @Get('/users/:id')
@@ -248,7 +262,7 @@ import { UserService } from './user.service'
 
 @Controller()
 export class UserController {
-    constructor(private readonly userService: UserService) {}
+    constructor(private userService: UserService) {}
 
     // ...
 }
@@ -273,7 +287,7 @@ import { Request, Response } from '@melonly/core'
 
 // In controller's constructor
 
-constructor(private readonly request: Request, private readonly response: Response) {}
+constructor(private request: Request, private response: Response) {}
 ```
 
 You can get matched URL parameters:
