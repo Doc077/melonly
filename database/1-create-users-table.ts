@@ -1,6 +1,6 @@
 import { Schema, SchemaType } from '@melonly/core'
 
-export const setup = async (schema: Schema): Promise<void> => {
+export const setup = (schema: Schema): void => {
     schema.createTable('users', {
         id: SchemaType.Id,
         name: SchemaType.String,
@@ -8,4 +8,8 @@ export const setup = async (schema: Schema): Promise<void> => {
         password: SchemaType.String,
         createdAt: SchemaType.DateTime,
     })
+}
+
+export const rollback = (schema: Schema): void => {
+    schema.dropTable('users')
 }
