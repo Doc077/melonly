@@ -5,9 +5,9 @@
 <!-- omit in toc -->
 ## Melonly Node.js Framework
 
-<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/v/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="Latest Version"></a>
-<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dt/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="Downloads"></a>
-<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/l/@melonly/core.svg?style=flat-square&labelColor=333842&color=fd6f71" alt="License"></a>
+<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/v/@melonly/core.svg?style=flat-square&labelColor=333842&color=10b981" alt="Latest Version"></a>
+<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dt/@melonly/core.svg?style=flat-square&labelColor=333842&color=10b981" alt="Downloads"></a>
+<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/l/@melonly/core.svg?style=flat-square&labelColor=333842&color=10b981" alt="License"></a>
 
 Melonly is a fast and modern web development framework for Node.js. It makes it easy to create secure and fast web applications with awesome developer experience.
 
@@ -30,7 +30,8 @@ Melonly is a fast and modern web development framework for Node.js. It makes it 
     - [Routes](#routes)
   - [Views](#views-1)
   - [Services](#services)
-  - [HTTP Requests and Responses](#http-requests-and-responses)
+  - [HTTP](#http)
+    - [Requests and Responses](#requests-and-responses)
     - [Form Input Data](#form-input-data)
     - [Redirects](#redirects)
     - [Headers](#headers)
@@ -278,7 +279,9 @@ public index(): string {
 ```
 
 
-### HTTP Requests and Responses
+### HTTP
+
+#### Requests and Responses
 
 Melonly provides a simple API for dealing with web requests and responses. You can inject `Request` and `Response` objects to controller and use them.
 
@@ -295,16 +298,18 @@ You can get matched URL parameters:
 ```ts
 @Get('/users/:id')
 public show(): string {
-    return this.request.params.id
+    const { id } = this.request.params
+
+    return `User id: ${id}`
 }
 ```
 
-You can also get url query data:
+You can also get URL query string entries:
 
 ```ts
-// Route: /users?view=gallery
+// Route: /search?query=user1
 
-const view = this.request.query.view // 'gallery'
+const { query } = this.request.query // 'user1'
 ```
 
 
@@ -316,17 +321,20 @@ To retrieve and process incoming form data, use the `request.data` getter:
 import { Post } from '@melonly/core'
 
 @Post('/users')
-public create(): string {
-    const username = this.request.data.username
+public create(): RedirectResponse {
+    const { username, password } = this.request.data
 
-    return username
+    this.userService.saveToDatabase(username, password)
+
+    // ...
 }
 ```
 
-Input data can be sent by HTML form or AJAX:
+Input data can be sent by HTML form or AJAX for example:
 
 ```html
 <input type="text" name="username">
+<input type="password" name="password">
 ```
 
 ```ts
