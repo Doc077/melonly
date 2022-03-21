@@ -31,17 +31,15 @@ Melonly documentation is available on the [official site](https://melonly.pl).
 
 ## Installation
 
-To create new Melonly project you can use the CLI installer. You only have to install `@melonly/cli` package:
+To create new Melonly project we recommend to use the CLI installer. You only have to install `@melonly/cli` package:
 
 ```shell
 npm install -g @melonly/cli
 ```
 
-Then you can check the Melonly CLI version if it has been properly installed. Then you'll be able to run `melon` commands:
+You can check the Melonly CLI version if it has been properly installed:
 
 ```shell
-# Display Melonly CLI version
-
 melon -v
 ```
 
