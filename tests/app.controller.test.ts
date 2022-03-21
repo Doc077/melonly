@@ -1,5 +1,9 @@
-test('asserts response is truthy', () => {
-    const response = true
+const callController = () => {
+    return 'Home page'
+}
 
-    expect(response).toBeTruthy()
+test('assert app controller response is valid', () => {
+    const response = callController()
+
+    expect(response).toMatch(/[A-Za-z]+ page/)
 })
