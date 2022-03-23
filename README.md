@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="54">
+  <img src="public/logo.png" width="54">
 </p>
 
 <!-- omit in toc -->
