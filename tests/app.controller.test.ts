@@ -1,9 +1,9 @@
 const callController = () => {
-    return 'Home page'
+  return 'Home page'
 }
 
 test('assert app controller response is valid', () => {
-    const response = callController()
+  const response = callController()
 
-    expect(response).toMatch(/[A-Za-z]+ page/)
+  expect(response).toMatch(/[A-Za-z]+ page/)
 })

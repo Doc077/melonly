@@ -1,26 +1,26 @@
 {
-    "compilerOptions": {
-        "target": "es2015",
-        "module": "commonjs",
-        "outDir": "./storage/dist",
-        "declaration": true,
-        "declarationMap": true,
-        "removeComments": false,
-        "strict": true,
-        "noImplicitAny": true,
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "moduleResolution": "node"
-    },
-    "include": [
-        "./**/*.ts"
-    ],
-    "exclude": [
-        "storage/dist",
-        "node_modules",
-        "tests"
-    ]
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "outDir": "./storage/dist",
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "storage/dist",
+    "node_modules",
+    "tests"
+  ]
 }

@@ -4,7 +4,7 @@ import { AppController } from './app/app.controller'
 const app = createApp()
 
 app.registerControllers([
-    AppController,
+  AppController,
 ])
 
 app.start()
