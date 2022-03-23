@@ -61,6 +61,7 @@ Once your project has been created you can start it on the local server using `n
 
 ```shell
 cd <project-name>
+
 npm start
 ```
 
@@ -76,7 +77,7 @@ If you discovered a bug or security vulnerability please open an issue / pull re
 
 ## Information
 
-Logo credit: [Watermelon icon created by Freepik - Flaticon](https://www.flaticon.com/free-icons/watermelon)
+Logo: [Created by Freepik - Flaticon](https://www.flaticon.com/free-icons/watermelon)
 
 Documentation: [https://melonly.pl](https://melonly.pl)
 
