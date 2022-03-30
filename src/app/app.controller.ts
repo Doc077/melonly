@@ -10,4 +10,9 @@ export class AppController {
       message: 'Hello World',
     })
   }
+
+  @Get('/session')
+  public test(): string {
+    return this.request.session.username ?? 'username not set in session'
+  }
 }
