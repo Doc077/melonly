@@ -10,16 +10,4 @@ export class AppController {
       message: 'Hello World',
     })
   }
-
-  @Get('/session')
-  public sessionTest(): string {
-    // dodawanie zmiennych do sesji
-    this.request.setSession('username', 'michał')
-
-    // czyszczenie sesji
-    //this.request.deleteSession()
-
-    // pobieranie z sesji
-    return this.request.session.username
-  }
 }
