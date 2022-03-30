@@ -12,7 +12,14 @@ export class AppController {
   }
 
   @Get('/session')
-  public test(): string {
-    return this.request.session.username ?? 'username not set in session'
+  public sessionTest(): string {
+    // dodawanie zmiennych do sesji
+    this.request.setSession('username', 'michał')
+
+    // czyszczenie sesji
+    //this.request.deleteSession()
+
+    // pobieranie z sesji
+    return this.request.session.username
   }
 }
