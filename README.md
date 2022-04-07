@@ -29,7 +29,7 @@ Melonly documentation is available on the [official site](https://melonly.pl).
 
 In order to use Melonly, your environment has to met few requirements:
 
-- Node.js 15+
+- Node.js 16+
 - [`npm`](https://nodejs.org/en/download/) and [`git`](https://git-scm.com) installed
 
 ## Installation
