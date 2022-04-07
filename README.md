@@ -14,10 +14,10 @@ Melonly is a fast and modern web development framework for Node.js. It makes it 
 **Table of Contents**
 
 - [Documentation](#documentation)
-- [Getting Started](#getting-started)
 - [Requirements](#requirements)
+- [Installation](#installation)
 - [Creating Project](#creating-project)
-- [Running Application](#running-application)
+- [Running the Application](#running-the-application)
 - [License](#license)
 - [Information](#information)
 
@@ -25,37 +25,36 @@ Melonly is a fast and modern web development framework for Node.js. It makes it 
 
 Melonly documentation is available on the [official site](https://melonly.pl).
 
-## Getting Started
+## Requirements
 
-To create new Melonly project you can use the CLI installer. You only have to install `@melonly/cli` package:
+In order to use Melonly, your environment has to met few requirements:
+
+- Node.js 15+
+- [`npm`](https://nodejs.org/en/download/) and [`git`](https://git-scm.com) installed
+
+## Installation
+
+First, you only have to install `@melonly/cli` package before creating your first project:
 
 ```shell
 npm install -g @melonly/cli
 ```
 
-## Requirements
-
-In order to use Melonly, your environment has to satisfy these requirements:
-
-- Node.js 15+
-- [`npm`](https://nodejs.org/en/download/) installed
-
-## Creating Project
-
-After installing, you can check the Melonly CLI version if it has been properly installed:
+You can check the Melonly CLI version when it has been properly installed and you'll be able to run melon commands.
 
 ```shell
 melon -v
 ```
 
-Then you'll be able to run `melon` commands.
-To create new project run the `new` command in your directory:
+## Creating Project
+
+To create new Melonly project you can use the CLI. Just run the `new` command in your directory:
 
 ```shell
 melon new <project-name>
 ```
 
-## Running Application
+## Running the Application
 
 Once your project has been created you can start it on the local server using `npm start`:
 
@@ -67,18 +66,18 @@ npm start
 
 Your application will be available on `localhost:3000` by default. You can change the port in `.env` configuration file.
 
-If you don't want to open the browser automatically, use the `npm run start:dev` command.
-
 ## License
 
 Melonly is an open-source framework licensed under the [MIT License](LICENSE).
 
-If you discovered a bug or security vulnerability please open an issue / pull request in the repository or email me: dom.rajkowski@gmail.com.
+If you discovered any bug or security issue please open new issue / pull request in the [repository](https://github.com/Doc077/melonly) or email me: dom.rajkowski@gmail.com.
 
 ## Information
 
-Logo: [Created by Freepik - Flaticon](https://www.flaticon.com/free-icons/watermelon)
+Logo [created by Freepik - Flaticon](https://www.flaticon.com/free-icons/watermelon)
 
-Documentation: [https://melonly.pl](https://melonly.pl)
+Documentation: [melonly.pl](https://melonly.pl)
 
-Author: [Doc077](https://github.com/Doc077)
+GitHub repository: [github.com/Doc077/melonly](https://github.com/Doc077/melonly)
+
+by [Doc077](https://github.com/Doc077)
