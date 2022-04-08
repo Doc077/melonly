@@ -1,13 +1,18 @@
 <p align="center">
-  <img src="public/logo.png" width="54">
+  <img src="public/logo.png" width="72">
+
+  <p align="center">Fast and modern web development framework for Node.js.</p>
+
+  <p align="center">
+    <a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/v/@melonly/core.svg?style=flat-square&labelColor=333842&color=6366f1" alt="Latest Version"></a>
+    <a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dt/@melonly/core.svg?style=flat-square&labelColor=333842&color=0ea5e9" alt="Downloads"></a>
+    <a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dm/@melonly/core.svg?style=flat-square&labelColor=333842&color=0ea5e9" alt="Month Downloads"></a>
+    <a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/l/@melonly/core.svg?style=flat-square&labelColor=333842&color=0ea5e9" alt="License"></a>
+  </p>
 </p>
 
 <!-- omit in toc -->
 ## Melonly Node.js Framework
-
-<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/v/@melonly/core.svg?style=flat-square&labelColor=333842&color=10b981" alt="Latest Version"></a>
-<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/dt/@melonly/core.svg?style=flat-square&labelColor=333842&color=10b981" alt="Downloads"></a>
-<a href="https://www.npmjs.com/package/@melonly/core" target="_blank"><img src="https://img.shields.io/npm/l/@melonly/core.svg?style=flat-square&labelColor=333842&color=10b981" alt="License"></a>
 
 Melonly is a fast and modern web development framework for Node.js. It makes it easy to create secure and fast web applications with awesome developer experience.
 
