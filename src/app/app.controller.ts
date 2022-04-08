@@ -8,7 +8,6 @@ export class AppController {
   public index(): RenderResponse {
     return this.response.render('home', {
       message: 'Hello World',
-      bool: false,
     })
   }
 }
