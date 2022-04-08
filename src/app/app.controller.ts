@@ -1,11 +1,11 @@
-import { Controller, Get, Request, Response, ViewResponse } from '@melonly/core'
+import { Controller, Get, RenderResponse, Request, Response } from '@melonly/core'
 
 @Controller()
 export class AppController {
   constructor(private request: Request, private response: Response) {}
 
   @Get('/')
-  public index(): ViewResponse {
+  public index(): RenderResponse {
     return this.response.render('home', {
       message: 'Hello World',
     })
