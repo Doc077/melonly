@@ -1,5 +1,5 @@
 import { createApp } from '@melonly/core'
-import { AppController } from './modules/app.controller'
+import { AppController } from './app/app.controller'
 
 const app = createApp()
 
