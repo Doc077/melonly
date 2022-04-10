@@ -4,7 +4,7 @@
     "module": "commonjs",
     "outDir": "./storage/dist",
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "removeComments": false,
     "strict": true,
     "noImplicitAny": true,
@@ -20,8 +20,9 @@
     "./**/*.ts"
   ],
   "exclude": [
-    "storage/dist",
+    "database",
     "node_modules",
+    "storage/dist",
     "tests"
   ]
 }
