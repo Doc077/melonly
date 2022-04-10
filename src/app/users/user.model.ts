@@ -10,4 +10,10 @@ export class User extends Entity {
 
   @Column()
   public email: string
+
+  @Column()
+  public password: string
+
+  @Column()
+  public createdAt: Date
 }
