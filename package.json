@@ -2,7 +2,7 @@
   "name": "melonly",
   "version": "1.0.0",
   "private": true,
-  "main": "storage/dist/src/main.js",
+  "main": "storage/dist/main.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
