@@ -1,10 +1,10 @@
-import { createApp } from '@melonly/core'
+import { createAppServer } from '@melonly/core'
 import { AppController } from './app/app.controller'
 
-const app = createApp()
+const server = createAppServer()
 
-app.registerControllers([
+server.registerControllers([
   AppController,
 ])
 
-app.start()
+server.start()
