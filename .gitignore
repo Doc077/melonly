@@ -1,9 +1,10 @@
-/dist
-/storage/dist
-/node_modules
-npm-debug.log
-yarn-error.log
-.env
-.env.backup
 /.idea
 /.vscode
+/dist
+/node_modules
+/storage/dist
+.env.backup
+.env.production
+.env
+npm-debug.log
+yarn-error.log
