@@ -1,9 +1,8 @@
-const callController = () => {
-  return 'Home page'
-}
+import { callController } from '@melonly/core'
+import { AppController } from '../src/app/app.controller'
 
-test('assert app controller response is valid', () => {
-  const response = callController()
+test('assert app controller returns a valid response', () => {
+  const response = callController(AppController, 'index')
 
-  expect(response).toMatch(/[A-Za-z]+ page/)
+  expect(response).toBe('Home page')
 })
