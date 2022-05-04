@@ -3,7 +3,7 @@
     "target": "es2015",
     "module": "commonjs",
     "outDir": "./storage/dist",
-    "declaration": true,
+    "declaration": false,
     "declarationMap": false,
     "removeComments": false,
     "strict": true,
