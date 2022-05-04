@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "concurrently \"melon open http://localhost:3000\" \"tsc --watch\" \"nodemon .dist/main --quiet\"",
-    "start:dev": "concurrently \"tsc --watch\" \"nodemon .dist/main --quiet\"",
-    "start:prod": "node dist/main",
+    "start": "tsc && concurrently \"melon open http://localhost:3000\" \"tsc --watch\" \"nodemon .dist/main --quiet\"",
+    "start:dev": "tsc && concurrently \"tsc --watch\" \"nodemon .dist/main --quiet\"",
+    "start:prod": "node .dist/main",
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:watch": "jest --watch"
