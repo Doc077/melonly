@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "commonjs",
-    "outDir": "./storage/dist",
+    "outDir": "./.dist",
     "declaration": false,
     "declarationMap": false,
     "removeComments": false,
