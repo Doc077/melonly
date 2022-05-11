@@ -7,4 +7,4 @@ server.registerControllers([
   AppController,
 ])
 
-server.start()
+server.start(__dirname)
