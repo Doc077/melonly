@@ -14,7 +14,8 @@
     "skipLibCheck": true,
     "strictPropertyInitialization": false,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "lib": ["es2021"]
   },
   "include": [
     "./**/*.ts"
