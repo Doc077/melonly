@@ -68,5 +68,14 @@ tailwind.config = {
       'sans': ['DM Sans', 'sans-serif'],
       'mono': ['Roboto Mono', 'Cascadia Code', 'monospace'],
     },
+    extend: {
+      colors: {
+        gray: {
+          '700': '#26333c',
+          '800': '#1a2630',
+          '900': '#121b24',
+        },
+      },
+    },
   },
 }
