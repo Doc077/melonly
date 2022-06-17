@@ -5,6 +5,7 @@ const server = createServer({
   controllers: [
     AppController,
   ],
+  channels: [],
 })
 
 server.start(__dirname)
