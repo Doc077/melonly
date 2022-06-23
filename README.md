@@ -42,7 +42,7 @@ Melonly is a fast and modern web development framework for Node.js. It makes it 
 
 ## Requirements
 
-To run Melonly, your environment has to met few requirements:
+To run Melonly, your environment has to meet few requirements:
 
 - Node.js 16+
 - [`npm`](https://nodejs.org/en/download/) and [`git`](https://git-scm.com) installed
